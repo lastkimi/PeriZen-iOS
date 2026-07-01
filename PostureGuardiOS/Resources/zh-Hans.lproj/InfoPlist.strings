@@ -1,0 +1,3 @@
+CFBundleDisplayName = "余光";
+CFBundleName = "余光";
+NSCameraUsageDescription = "PeriZen 需要使用前置摄像头在本地实时分析您的姿态以提醒您端正身体，本分析完全在本地进行，画面绝对不会被上传或保存。";

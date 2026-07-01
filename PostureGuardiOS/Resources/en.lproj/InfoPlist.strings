@@ -1,0 +1,3 @@
+CFBundleDisplayName = "PeriZen";
+CFBundleName = "PeriZen";
+NSCameraUsageDescription = "PeriZen needs front camera access for real-time posture analysis. This happens entirely locally on your device—video is never recorded or uploaded.";
