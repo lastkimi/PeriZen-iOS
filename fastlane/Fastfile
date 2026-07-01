@@ -77,4 +77,14 @@ platform :ios do
       force: true
     )
   end
+
+  desc "Upload only metadata"
+  lane :upload_metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      submit_for_review: false,
+      force: true
+    )
+  end
 end
