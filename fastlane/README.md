@@ -31,6 +31,30 @@ Fetch or create certificates and profiles
 
 Push a new release build to the App Store
 
+### ios upload_ipa
+
+```sh
+[bundle exec] fastlane ios upload_ipa
+```
+
+Upload only the IPA to bypass metadata crashes
+
+### ios upload_screenshots
+
+```sh
+[bundle exec] fastlane ios upload_screenshots
+```
+
+Upload only the screenshots
+
+### ios upload_metadata
+
+```sh
+[bundle exec] fastlane ios upload_metadata
+```
+
+Upload only metadata
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

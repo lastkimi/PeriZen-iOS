@@ -149,6 +149,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					359003807FE985E86F7C98BB = {
+						DevelopmentTeam = BSKR6CQ765;
+					};
 				};
 			};
 			buildConfigurationList = DCB698F0DC3D7C1A26CBD013 /* Build configuration list for PBXProject "PostureGuardiOS" */;
@@ -236,6 +239,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = BSKR6CQ765;
 				INFOPLIST_FILE = PostureGuardiOS/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = BSKR6CQ765;
 				INFOPLIST_FILE = PostureGuardiOS/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
