@@ -1,1 +1,1 @@
-focus,posture,zen,ambient,haptic,productivity,minimalist,dopamine,desensitization,study
+pomodoro,productivity,minimalist,study,adhd,meditation,mindfulness,habit,neck,health,ambient,timer

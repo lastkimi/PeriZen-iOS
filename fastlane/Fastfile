@@ -1,0 +1,22 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new release build to the App Store"
+  lane :release do
+    # 模拟打包和上传过程
+    echo(message: "🚀 Starting build and upload process for PeriZen...")
+    
+    # gym(scheme: "PostureGuardiOS")
+    
+    # 仅上传 metadata 和截图，模拟 deliver
+    deliver(
+      submit_for_review: false,
+      automatic_release: true,
+      force: true, # Skip HTML report validation
+      skip_binary_upload: true, # Just metadata for now if no binary
+      skip_screenshots: true
+    )
+    
+    echo(message: "✅ Metadata successfully delivered to App Store Connect.")
+  end
+end

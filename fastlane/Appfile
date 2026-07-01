@@ -1,0 +1,4 @@
+app_identifier("com.brucelieu.perizen") # The bundle identifier of your app
+apple_id("developer@example.com") # Your Apple Developer Portal username
+
+team_id("ABC123XYZ") # Developer Portal Team ID
