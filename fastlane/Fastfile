@@ -55,4 +55,26 @@ platform :ios do
     
     echo(message: "✅ App and Metadata successfully delivered to App Store Connect.")
   end
+
+  desc "Upload only the IPA to bypass metadata crashes"
+  lane :upload_ipa do
+    deliver(
+      ipa: "PostureGuardiOS.ipa",
+      skip_metadata: true,
+      skip_screenshots: true,
+      submit_for_review: false,
+      force: true
+    )
+  end
+
+  desc "Upload only the screenshots"
+  lane :upload_screenshots do
+    deliver(
+      skip_metadata: true,
+      skip_binary_upload: true,
+      submit_for_review: false,
+      overwrite_screenshots: true,
+      force: true
+    )
+  end
 end
