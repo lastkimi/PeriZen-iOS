@@ -1,14 +1,31 @@
 default_platform(:ios)
 
 platform :ios do
+  before_all do
+    # Load App Store Connect API Key
+    app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_ISSUER_ID"],
+      key_filepath: ENV["ASC_KEY_FILEPATH"],
+      in_house: false
+    )
+  end
+
+  desc "Create the app on App Store Connect"
+  lane :produce_app do
+    produce(
+      app_name: "PeriZen",
+      sku: "com.slmcamp.PeriZen",
+      language: "en-US",
+      skip_devcenter: true
+    )
+  end
+
   desc "Push a new release build to the App Store"
   lane :release do
-    # 模拟打包和上传过程
     echo(message: "🚀 Starting build and upload process for PeriZen...")
     
-    # gym(scheme: "PostureGuardiOS")
-    
-    # 仅上传 metadata 和截图，模拟 deliver
+    # 仅上传 metadata 和截图，模拟 deliver (or actual deliver)
     deliver(
       submit_for_review: false,
       automatic_release: true,
