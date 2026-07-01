@@ -9,16 +9,8 @@ platform :ios do
       key_filepath: ENV["ASC_KEY_FILEPATH"],
       in_house: false
     )
-  end
 
-  desc "Create the app on App Store Connect"
-  lane :produce_app do
-    produce(
-      app_name: "PeriZen",
-      sku: "com.slmcamp.PeriZen",
-      language: "en-US",
-      skip_devcenter: true
-    )
+
   end
 
   desc "Push a new release build to the App Store"
