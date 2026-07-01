@@ -29,7 +29,7 @@ platform :ios do
     echo(message: "🚀 Starting build process for PeriZen...")
     
     # Generate the project first if it doesn't exist
-    sh("xcodegen generate")
+    sh("cd .. && xcodegen generate")
 
     # Build the app using gym
     build_app(
