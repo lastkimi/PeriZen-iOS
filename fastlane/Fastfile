@@ -9,23 +9,50 @@ platform :ios do
       key_filepath: ENV["ASC_KEY_FILEPATH"],
       in_house: false
     )
+  end
 
-
+  desc "Fetch or create certificates and profiles"
+  lane :sync_certificates do
+    match(
+      type: "appstore",
+      readonly: false, # Or true if certificates already exist
+      git_url: ENV["MATCH_GIT_URL"],
+      app_identifier: ["com.slmcamp.PeriZen"]
+    )
   end
 
   desc "Push a new release build to the App Store"
   lane :release do
-    echo(message: "🚀 Starting build and upload process for PeriZen...")
+    echo(message: "🚀 Fetching certificates...")
+    sync_certificates
     
-    # 仅上传 metadata 和截图，模拟 deliver (or actual deliver)
+    echo(message: "🚀 Starting build process for PeriZen...")
+    
+    # Generate the project first if it doesn't exist
+    sh("xcodegen generate")
+
+    # Build the app using gym
+    build_app(
+      project: "PostureGuardiOS.xcodeproj",
+      scheme: "PostureGuardiOS",
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: {
+          "com.slmcamp.PeriZen" => "match AppStore com.slmcamp.PeriZen"
+        }
+      }
+    )
+    
+    echo(message: "🚀 Uploading binary and metadata...")
+    
     deliver(
       submit_for_review: false,
       automatic_release: true,
       force: true, # Skip HTML report validation
-      skip_binary_upload: true, # Just metadata for now if no binary
+      skip_binary_upload: false, # Upload the binary we just built
       skip_screenshots: true
     )
     
-    echo(message: "✅ Metadata successfully delivered to App Store Connect.")
+    echo(message: "✅ App and Metadata successfully delivered to App Store Connect.")
   end
 end
